@@ -1,0 +1,515 @@
+:root {
+    --primary-color: #161616
+}
+/* Set the body margin and padding to 0px */
+body, ul, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Set the background color of the body to the primary color */
+body {
+    background-color: var(--primary-color);
+}
+
+
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+
+#main {
+    padding: 3rem 5rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: right 10rem top 5rem;
+    background-repeat: no-repeat;
+    background-color: #edf1fd;
+}
+
+.main-slider img {
+    width: 110%;
+    position: absolute;
+    left: calc(50% + 400px);
+    top: -150px;
+    right: 0px;
+    object-fit: contain;
+    object-position: bottom;
+    z-index: 4;
+    animation: float 6s ease-in-out infinite;
+
+}
+
+
+@keyframes float {
+    0%{
+        transform: translate(-50%,0px);
+    }
+    50%{
+        transform: translate(-50%,-20px);
+    }
+    100%{
+        transform: translate(-50%,0px);
+    }
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-family: calibri;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 50px;
+    background-color: #F4F7FF;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.menu {
+    display: flex;
+}
+.menu li a {
+    padding: 10px 15px;
+    color: #6c707c;
+    font-size: 12px;
+}
+.lang {
+    color: #292929;
+}
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #292929;
+    font-family: Poppins;
+}
+.toggle {
+    display: none;
+}
+.active a,
+.menu li a:hover {
+    background-color:#292929;
+    color: #FFF!important;
+    font-weight: bold;
+    transition: background-color 0.4 ease, color 0.4 ease;
+    text-decoration: none;
+    outline: none;
+}
+
+.name {
+    font-family: calibri;
+    width: 500px;
+    position: absolute;
+    left:10%;
+    top: 35%;
+    transform: translate(0, 0);
+    animation: tracking-in-expand-fwd-top 2s ease-in-out ;
+}
+
+  @keyframes tracking-in-expand-fwd-top {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px) translateY(-500px);
+              transform: translateZ(-700px) translateY(-500px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      -webkit-transform: translateZ(0) translateY(0);
+              transform: translateZ(0) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+.name p:nth-child(1), .name .details {
+    color: #6c707c;
+    font-size: 16px;
+}
+.name h1 {
+    font-family: Poppins;
+    font-size: 40px;
+    margin: 0px;
+    letter-spacing: 3px;
+    color: #292929;
+}
+.cv-btn {
+    width: 150px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #292929;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+}
+.cv-btn:hover{
+    background-color: #404040;
+}
+
+.black-line {
+  /* Position the line at the bottom of its container */
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+
+  /* Make the line 50% the width of its container and 15% the height */
+  width: 50%;
+  height: 15%;
+
+  /* Position the line 3% from the left edge of its container */
+  left: -3%;
+
+  /* Add a black border on the right side of the line */
+  border-right: 1px solid rgba(41, 41, 41, 0.3);
+
+  /* Add some margin at the bottom of the line to create space between it and the content below */
+  margin-bottom: 4em;
+  animation: tracking-in-expand-fwd-top 2s ease-in-out;
+}
+
+.black-line::after {
+    content: " "; /* Add a space character as content */
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 11px 0 11px;
+    border-color: #292929 transparent transparent transparent;
+    right: -0.7em; /* Use em units for horizontal positioning */
+    bottom: -2px; /* Use pixels for vertical positioning */
+}
+
+.social {
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    display: flex;
+}
+
+.social a {
+    margin: 6px 12px;
+}
+
+.social i {
+    color: rgba(18,17,18,0.40);
+    font-size: 25px;
+}
+.social a:hover i{
+    color: #17d1ac;
+    transition: all ease 0.5s;
+}
+
+#about {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    opacity: 0;;
+}
+
+#about.active {
+    animation: slide-in-left 2s ease-in-out forwards;
+}
+
+@keyframes slide-in-left {
+    0% {
+      -webkit-transform: translateX(-1000px);
+              transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+.about-model img {
+    position: absolute;
+    right: 200px;
+    top: 50px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+.about-text {
+    font-family: calibri;
+    width: 40%;
+
+}
+
+.about-text h1 {
+    font-size: 5rem;
+    color: #17d1ac; 
+
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    color: #FFFFFF;
+    font-weight: 400;
+
+}
+
+.about-text h1, h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.90)
+}
+
+.about-text button {
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #17d1ac;
+
+}
+
+
+.about-text button:hover {
+    background-color: #FFFFFF;
+    transition: all ease 0.3s;
+}
+
+
+#services {
+    width: 100%;
+    height: 100hv;
+    box-sizing: border-box;
+    font-family: calibri;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.s-heading h1 {
+    color: #FFFFFF;
+    font-size: 3rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+.s-heading p {
+    color: rgba(255, 255, 255, 0.30);
+    font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+.s-heading {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.s-box {
+    background-color: #2B2B2B;
+    width: 350px;
+    height: 500px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.b-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.s-b-img {
+    width: 100%;
+    height: 60%;
+}
+
+.s-b-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.s-b-text {
+    width: 100%;
+    height: 40%;
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.s-b-text a {
+    margin: 0px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-family: calibri;
+    display: block;
+    display: -webkit-box;
+    max-width: 80%;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.s-b-text a:hover {
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.s-type {
+    font-family: calibri;
+    color: #FFFFFF;
+    background-color: #151515;
+    padding: 10px 15px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.s-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+
+  
+@media only screen and (max-width: 600px) {
+    /* CSS rules for screens smaller than or equal to 600px */
+    #main {
+        padding: 1rem 2rem;
+    }
+
+    .main-slider img {
+        width: 100%;
+        left: calc(50% + 200px);
+        top: -75px;
+    }
+
+    nav {
+        padding: 10px 25px;
+    }
+
+    .menu li a {
+        padding: 5px 7px;
+        font-size: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .name {
+        width: 250px;
+        top: 50%;
+    }
+
+    .name h1 {
+        font-size: 20px;
+    }
+
+    .cv-btn {
+        width: 75px;
+        height: 25px;
+        font-size: 8px;
+    }
+
+    .about-model img {
+        right: 100px;
+        top: 25px;
+    }
+
+    .about-text {
+        width: 80%;
+    }
+
+    .about-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.6rem;
+    }
+
+    .about-text button {
+        width: 90px;
+        height: 20px;
+        font-size: 8px;
+    }
+
+    .s-heading h1 {
+        font-size: 1.5rem;
+    }
+
+    .s-heading p {
+        font-size: 0.5rem;
+    }
+
+    .s-box {
+        width: 175px;
+        height: 250px;
+        margin: 10px;
+    }
+
+    .s-b-img {
+        height: 30%;
+    }
+
+    .s-b-text a {
+        font-size: 0.55rem;
+    }
+
+    .s-type {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+}
